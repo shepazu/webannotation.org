@@ -25,14 +25,22 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-42886053-1', 'json-ld.org');
-      ga('send', 'pageview');
     </script>
+
+    <style type="text/css">
+      .code-prop {
+        color: rgb(255, 122, 0);
+      }
+ 
+      .code-value {
+        color: rgb(0, 0, 175);
+      }
+ 
+      .code-default-value {
+        color: rgb(0, 148, 0);
+      }
+ 
+    </style>
   </head>
 
   <body>
@@ -44,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand active" href="#"><img src="images/json-ld-data-24.png" alt="JSON-LD logo"> JSON-LD</a>
+          <a class="brand active" href="#"><img width="24px" height="24px" src="images/annotation-icon.svg" alt="Web Annotation logo"> Web Annotation</a>
           <div class="nav-collapse">
           <ul class="nav">
             <li>
@@ -83,47 +91,62 @@
     <div class="hero-unit">
       <h1>Web Annotation</h1>
       <br>
-      <p class="tagline">Data is messy and disconnected. JSON-LD organizes and
-       connects it, creating a better Web.</p>
+      <p class="tagline">Commenting on the Web is broken. Web Annotation offers the keys to create and share meaningful comments, making a better Web.</p>
     </div>
 
     <div class="container">
       <div class="row">
         <div class="span3">
-          <h2><span class="icon-exchange"></span> Linked Data </h2>
+          <h2><span class="icon-exchange"></span> Messaging </h2>
           <p class="text-justify">
-            <a href="http://en.wikipedia.org/wiki/Linked_data">Linked Data</a>
-            empowers people that publish and use information on the Web. It is a
-            way to create a network of standards-based, machine-readable data across
-            Web sites. It allows an application to start at one piece of Linked Data,
-            and follow embedded links to other pieces of Linked Data that are hosted
-            on different sites across the Web.
+            There are multiple platforms for sending messages on the Web. Shouldn't there be a standard way to share between social media services? Web Annotations provides a common data model that unlocks the content you've created, and lets you and others spread it far and wide, while still linking back to where you first published it. 
           </p>
         </div>
         <!-- End span -->
 
         <div class="span6">
           <h2 style="text-align: center;">A Simple Example</h2>
-          <pre>{
-  "<span style="color: rgb(255, 122, 0);">@context</span>": "<a href="http://json-ld.org/contexts/person.jsonld">http://json-ld.org/contexts/person.jsonld</a>",
-  "<span style="color: rgb(255, 122, 0);">@id</span>": "<a href="http://dbpedia.org/resource/John_Lennon">http://dbpedia.org/resource/John_Lennon</a>",
-  "<span style="color: rgb(255, 122, 0);">name</span>": "<span style="color: rgb(0, 148, 0);">John Lennon</span>",
-  "<span style="color: rgb(255, 122, 0);">born</span>": "<span style="color: rgb(0, 0, 175);">1940-10-09</span>",
-  "<span style="color: rgb(255, 122, 0);">spouse</span>": "<a href="http://dbpedia.org/resource/Cynthia_Lennon">http://dbpedia.org/resource/Cynthia_Lennon</a>"
-}</pre>
+          <code><pre>{
+  "<span class="code-prop">@context</span>": "<span class="code-default-value">http://www.w3.org/ns/anno.jsonld</span>",
+  "<span class="code-prop">id</span>": "<span class="code-default-value">http://example.org/anno3</span>",
+  "<span class="code-prop">type</span>": "<span class="code-default-value">Annotation</span>",
+  "<span class="code-prop">creator</span>": {
+    "<span class="code-prop">id</span>": "<span class="code-default-value">http://example.org/user1</span>",
+    "<span class="code-prop">name</span>": "<span class="code-value">Anne O'Tater</span>",
+    "<span class="code-prop">nick</span>": "<span class="code-value">Ann0</span>"
+  },
+  "<span class="code-prop">body</span>": [
+    {
+      "<span class="code-prop">role</span>": "<span class="code-default-value">comment</span>",
+      "<span class="code-prop">text</span>": "<span class="code-value">Vannevar Bush is the father of modern annotations.</span>"
+    },
+    {
+      "<span class="code-prop">role</span>": "<span class="code-default-value">tagging</span>",
+      "<span class="code-prop">text</span>": "<span class="code-value">quote</span>"
+    }
+  ],  
+  "<span class="code-prop">body": {"id</span>": "<span class="code-default-value">http://example.net/review1</span>"},
+  "<span class="code-prop">target</span>": {
+    "<span class="code-prop">source</span>": "<span class="code-default-value">http://example.org/page1</span>",
+    "<span class="code-prop">selector</span>": {
+      "<span class="code-prop">type</span>": "<span class="code-default-value">TextQuoteSelector</span>",
+      "<span class="code-prop">exact</span>": "<span class="code-value">The process of tying two items together is the important thing.</span>",
+      "<span class="code-prop">prefix</span>": "<span class="code-value">essential feature of the memex. </span>",
+      "<span class="code-prop">suffix</span>": "<span class="code-value"> When the user is building a tra</span>"
+    }
+  }
+}
+</pre></code>
         </div>
         <!-- End span -->
 
+
+
         <div class="span3">
           <h2>
-            <span><img src="images/json-ld-data-32.png" alt="JSON-LD logo"></span> JSON-LD
+            <span><img src="images/json-ld-data-32.png" alt="JSON-LD logo"></span> Bookmarking and Notes
           </h2>
-          <p class="text-justify">JSON-LD is a lightweight Linked Data format. It
-            is easy for humans to read and write. It is based on the already
-            successful JSON format and provides a way to help JSON data interoperate
-            at Web-scale. JSON-LD is an ideal data format for programming
-            environments, REST Web services, and unstructured databases such as
-            CouchDB and MongoDB.
+          <p class="text-justify">Bookmarking and note-taking apps let you organize your Web surfing and research. But there haven't been many innovations in these tools for decades. Web Annotation lets you take detailed notes about why a website caught your attention, highlight what quotes or selections were the most interesting, and lets you share those thoughts with the world, or select groups of friends or colleagues (or just keep them for yourself).
           </p>
         </div>
         <!-- End span -->
@@ -137,12 +160,12 @@
       <div class="container">
         <div class="row">
           <p class="text-justify offset2 span8">
-            The <strong>JSON-LD Playground</strong> is a web-based JSON-LD viewer and debugger.
-            If you are interested in learning JSON-LD, this tool will be of great help
+            The <strong>Web Annotation Playground</strong> is a web-based Web Annotation viewer and debugger.
+            If you are interested in learning to use Web Annotations, this tool will be of great help
             to you. Developers may also use the tool to debug, visualize, and share
-            their JSON-LD markup.
+            their Web Annotation content, in JSON-LD or HTML.
           </p>
-          <a class="btn" href="./playground/">Launch the JSON-LD Playground</a>
+          <a class="btn" href="./playground/">Launch the Web Annotation Playground</a>
         </div>
       </div>
       <!-- End span -->
